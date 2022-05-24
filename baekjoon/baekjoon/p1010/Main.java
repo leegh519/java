@@ -14,17 +14,20 @@ public class Main {
 		int t = Integer.parseInt(br.readLine());
 
 		for (int i = 0; i < t; i++) {
-			int result = 1;
+			long result = 1;
 			st = new StringTokenizer(br.readLine());
 			int n = Integer.parseInt(st.nextToken());
 			int m = Integer.parseInt(st.nextToken());
-			for (int j = 0; j < n; j++) {
-				result *= m;
-				m--;
+			if (n > (m / 2)) {
+				n = m - n;
 			}
-			System.out.println(result/n);
+			for (int j = m; j > m - n; j--) {
+				result *= j;
+			}
+			for (int j = 1; j <= n; j++) {
+				result /= j;
+			}
+			System.out.println(result);
 		}
-
 	}
-
 }
