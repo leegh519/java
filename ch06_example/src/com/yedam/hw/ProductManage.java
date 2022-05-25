@@ -40,9 +40,10 @@ public class ProductManage {
 	// 최고가격
 	public Product getHigh() {
 		Product p = product[0];
-		int high = p.getPrice();
-		for (int i = 0; i <= index; i++) {
-			if (high < product[i].getPrice()) {
+		//int high = p.getPrice();
+		for (int i = 1; i <= index; i++) {
+			if (p.getPrice() < product[i].getPrice()) {
+				//high = product[i].getPrice();
 				p = product[i];
 			}
 		}
@@ -57,6 +58,17 @@ public class ProductManage {
 		}
 
 		return sum - getHigh().getPrice();
+	}
+	
+	public int getTotalPrice() {
+		int sum=0;
+		for(Product temp : product) {
+			if(temp.getPrice() == getHigh().getPrice()) {
+				continue;
+			}
+			sum+=temp.getPrice();
+		}
+		return sum;
 	}
 
 }
