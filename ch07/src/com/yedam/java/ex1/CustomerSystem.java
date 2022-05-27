@@ -3,9 +3,11 @@ package com.yedam.java.ex1;
 import java.util.Scanner;
 
 public class CustomerSystem {
+	
 	// 필드
 	private Repo repo = new Repo(); // repo가 싱글톤이면 하나의 db를 공유함
 	private Scanner sc = new Scanner(System.in);
+	
 
 	// 생성자
 	public CustomerSystem() {

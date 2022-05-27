@@ -35,7 +35,9 @@ public class NumberGame {
 		}
 
 	}
-
+	// method
+	
+	
 	private void exit() {
 		System.out.println("게임 종료");
 	}
@@ -49,7 +51,7 @@ public class NumberGame {
 		return Integer.parseInt(sc.nextLine());
 	}
 
-	// method
+	
 
 	// 메뉴출력
 	private void printMenu() {
