@@ -1,10 +1,6 @@
 package baekjoon.p1002;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -34,12 +30,12 @@ public class Main {
 				} else {
 					bw.write(0 + "\n");
 				}
-			} else if (xyr[2] + xyr[5] < dis || Math.abs(xyr[2] - xyr[5]) > dis) {
-				bw.write("0\n");
-			} else if (dis < xyr[2] + xyr[5] || Math.abs(xyr[2] - xyr[5]) < dis) {
-				bw.write("2\n");
 			} else if (xyr[2] + xyr[5] == dis || Math.abs(xyr[2] - xyr[5]) == dis) {
 				bw.write("1\n");
+			} else if (xyr[2] + xyr[5] > dis && Math.abs(xyr[2] - xyr[5]) < dis) {
+				bw.write("2\n");
+			} else if (xyr[2] + xyr[5] < dis || Math.abs(xyr[2] - xyr[5]) > dis) {
+				bw.write("0\n");
 			}
 
 		}
