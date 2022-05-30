@@ -67,7 +67,7 @@ public class BookSystem implements BookProgram {
 
 		// 평균
 		System.out.println("가장 비싼책과 싼책을 제외한 책 평균 가격");
-		System.out.println(calAvg(bookAccess));
+		System.out.printf("%.2f\n", calAvg(bookAccess));
 	}
 
 	private Book searchMax(BookAccess bookAccess) {
@@ -113,7 +113,7 @@ public class BookSystem implements BookProgram {
 		Book min = searchMin(bookAccess);
 
 		for (int i = 0; i < list.length; i++) {
-			if (list[i].getPrice() != max.getPrice() && list[i].getPrice() != min.getPrice()) {
+			if (list[i] != max && list[i] != min) {
 				sum += list[i].getPrice();
 				count++;
 			}
