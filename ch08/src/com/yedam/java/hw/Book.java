@@ -1,10 +1,11 @@
 package com.yedam.java.hw;
 
+// VO, DTO 클래스
 public class Book {
 
 	// field
-	private static long serialNum = 9791100000003l;
-	private long isbn;
+	private static int serialNum = 1000;
+	private int isbn;
 	private String name;
 	private int price;
 
@@ -15,7 +16,7 @@ public class Book {
 	public Book(String name, int price) {
 		this.name = name;
 		this.price = price;
-		serialNum += 100;
+		serialNum += 1;
 		this.isbn = serialNum;
 	}
 
@@ -25,7 +26,7 @@ public class Book {
 		return serialNum;
 	}
 
-	public static void setSerialNum(long serialNum) {
+	public static void setSerialNum(int serialNum) {
 		Book.serialNum = serialNum;
 	}
 
@@ -33,7 +34,7 @@ public class Book {
 		return isbn;
 	}
 
-	public void setIsbn(long isbn) {
+	public void setIsbn(int isbn) {
 		this.isbn = isbn;
 	}
 

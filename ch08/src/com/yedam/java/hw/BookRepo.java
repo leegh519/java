@@ -78,6 +78,7 @@ public class BookRepo implements BookAccess {
 		for (int i = 0; i <= listIndex; i++) {
 			if (bookList[i].getName().equals(name)) {
 				selected = bookList[i];
+				break;
 			}
 		}
 
