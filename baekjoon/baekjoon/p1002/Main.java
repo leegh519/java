@@ -34,12 +34,12 @@ public class Main {
 				} else {
 					bw.write(0 + "\n");
 				}
-			} else if (xyr[2] + xyr[5] < dis || Math.abs(xyr[2] - xyr[5]) > dis) {
-				bw.write("0\n");
-			} else if (dis < xyr[2] + xyr[5] || Math.abs(xyr[2] - xyr[5]) < dis) {
-				bw.write("2\n");
 			} else if (xyr[2] + xyr[5] == dis || Math.abs(xyr[2] - xyr[5]) == dis) {
 				bw.write("1\n");
+			} else if (xyr[2] + xyr[5] > dis && Math.abs(xyr[2] - xyr[5]) < dis) {
+				bw.write("2\n");
+			} else if (xyr[2] + xyr[5] < dis || Math.abs(xyr[2] - xyr[5]) > dis) {
+				bw.write("0\n");
 			}
 
 		}
