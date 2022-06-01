@@ -61,13 +61,12 @@ public class BookSystem implements BookProgram {
 		Book min = searchMin(bookAccess);
 		min.showInfo();
 
-		// 1,2 제외 책정보 출력
+		// 1,2 제외 책정보 출력, 평균
 		System.out.println("가장 비싼책과 싼책을 제외한 책 목록");
-		printExceptMaxMin(bookAccess);
-
-		// 평균
+//		printExceptMaxMin(bookAccess);
+		double avg = calAvg(bookAccess);
 		System.out.println("가장 비싼책과 싼책을 제외한 책 평균 가격");
-		System.out.printf("%.2f\n", calAvg(bookAccess));
+		System.out.printf("%.2f\n", avg);
 	}
 
 	private Book searchMax(BookAccess bookAccess) {
@@ -92,7 +91,21 @@ public class BookSystem implements BookProgram {
 		return min;
 	}
 
-	private void printExceptMaxMin(BookAccess bookAccess) {
+//	private void printExceptMaxMin(BookAccess bookAccess) {
+//		Book[] list = bookAccess.selectAll();
+//		Book max = searchMax(bookAccess);
+//		Book min = searchMin(bookAccess);
+//
+//		for (int i = 0; i < list.length; i++) {
+//			if (list[i] != max && list[i] != min) {
+//				list[i].showInfo();
+//			}
+//		}
+//
+//	}
+
+	private double calAvg(BookAccess bookAccess) {
+		double sum = 0;
 		Book[] list = bookAccess.selectAll();
 		Book max = searchMax(bookAccess);
 		Book min = searchMin(bookAccess);
@@ -100,25 +113,10 @@ public class BookSystem implements BookProgram {
 		for (int i = 0; i < list.length; i++) {
 			if (list[i] != max && list[i] != min) {
 				list[i].showInfo();
-			}
-		}
-
-	}
-
-	private double calAvg(BookAccess bookAccess) {
-		double sum = 0;
-		int count = 0;
-		Book[] list = bookAccess.selectAll();
-		Book max = searchMax(bookAccess);
-		Book min = searchMin(bookAccess);
-
-		for (int i = 0; i < list.length; i++) {
-			if (list[i] != max && list[i] != min) {
 				sum += list[i].getPrice();
-				count++;
 			}
 		}
-		return sum / count;
+		return sum / (list.length - 2);
 	}
 
 }
