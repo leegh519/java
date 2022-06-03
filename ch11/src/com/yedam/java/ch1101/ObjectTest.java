@@ -13,16 +13,21 @@ public class ObjectTest {
 		if (obj1 == obj2) {
 			System.out.println("obj1과 obj2는 논리적으로 같음");
 		}
-		
-		String mem1 = new String("1");
-		String mem2 = new String("1");
-		
-		if (mem1.equals(mem2)) {
-			System.out.println("obj111과 obj2는 논리적으로 같음");
+
+		Member m1 = new Member("blue");
+		Member m2 = new Member("blue");
+		Member m3 = new Member("red");
+
+		if (m1.equals(m2)) {
+			System.out.println("m1과 m2는 동등합니다.");
+		} else {
+			System.out.println("m1과 m2는 동등하지 않습니다.");
 		}
 
-		if (mem1 == mem2) {
-			System.out.println("obj1과 obj2222는 논리적으로 같음");
+		if (m1.equals(m3)) {
+			System.out.println("m1과 m3는 동등합니다.");
+		} else {
+			System.out.println("m1과 m3는 동등하지 않습니다.");
 		}
 	}
 

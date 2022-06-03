@@ -7,6 +7,7 @@ public class Member {
 		this.id = id;
 	}
 
+	// 보통 이형식으로 오버라이딩함
 	@Override
 	public boolean equals(Object obj) {
 		// 논리적으로 동등한지
@@ -20,5 +21,15 @@ public class Member {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		return id.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		return "id : " + id;
 	}
 }
