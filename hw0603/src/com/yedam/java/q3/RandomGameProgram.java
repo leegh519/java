@@ -9,16 +9,12 @@ import com.yedam.java.q2.RPGgame;
 public class RandomGameProgram {
 
 	// 필드
-	Keypad game;
+	private Keypad game;
 
 	// 생성자
 	public RandomGameProgram() {
-		int random = (int) (Math.random() * 2);
-		if (random % 2 == 0) {
-			game = new RPGgame();
-		} else if (random % 2 == 1) {
-			game = new ArcadeGame();
-		}
+
+		setRandomGame();
 
 		while (true) {
 			printMenu();
@@ -39,7 +35,7 @@ public class RandomGameProgram {
 				exit();
 				break;
 			} else {
-				System.out.println("입력이 잘못되었습니다.");
+				printErrMsg();
 			}
 		}
 	}
@@ -56,8 +52,7 @@ public class RandomGameProgram {
 
 	private int selectMenu() {
 		System.out.print("choice>>");
-		Scanner sc = new Scanner(System.in);
-		return sc.nextInt();
+		return new Scanner(System.in).nextInt();
 	}
 
 	private void changeGame() {
@@ -70,6 +65,19 @@ public class RandomGameProgram {
 
 	private void exit() {
 		System.out.println("EXIT");
+	}
+
+	private void printErrMsg() {
+		System.out.println("입력이 잘못되었습니다.");
+	}
+
+	private void setRandomGame() {
+		int random = (int) (Math.random() * 2);
+		if (random % 2 == 0) {
+			game = new RPGgame();
+		} else if (random % 2 == 1) {
+			game = new ArcadeGame();
+		}
 	}
 
 }
