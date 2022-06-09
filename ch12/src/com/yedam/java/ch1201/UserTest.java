@@ -10,6 +10,9 @@ public class UserTest {
 		
 		User user2 = new User(c, 200);
 		user2.start();
+		
+		user1 = new User(c,500);
+		user1.start();
 
 	}
 
