@@ -93,6 +93,7 @@ public class EmpDAO {
 				emp.setEmail(rs.getString("email"));
 				emp.setPhoneNumber(rs.getString("phone_number"));
 				emp.setHireDate(rs.getDate("hire_date"));
+				emp.setJobId(rs.getString("job_id"));
 				emp.setSalary(rs.getDouble("salary"));
 				emp.setCommissionPct(rs.getDouble("commission_pct"));
 				emp.setManagerId(rs.getInt("manager_id"));
@@ -114,11 +115,11 @@ public class EmpDAO {
 		Employee emp = null;
 		try {
 			connect();
-			emp = new Employee();
 			pstmt = conn.prepareStatement("SELECT * FROM employees WHERE employee_id = ?");
 			pstmt.setInt(1, employeeId);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
+				emp = new Employee();
 				emp.setEmployeeId(rs.getInt("employee_id"));
 				emp.setFirstName(rs.getString("first_name"));
 				emp.setLastName(rs.getString("last_name"));

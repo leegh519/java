@@ -6,8 +6,9 @@ public class Department {
 	private String departmentName;
 	private int managerId;
 	private int locationId;
-	
-	public Department() {}
+
+	public Department() {
+	}
 
 	public int getDepartmentId() {
 		return departmentId;
@@ -43,9 +44,8 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return "Department [departmentId=" + departmentId + ", departmentName=" + departmentName + ", managerId="
-				+ managerId + ", locationId=" + locationId + "]";
+		System.out.printf("%12d\t%18s\t%9d\t%10d", departmentId, departmentName, managerId, locationId);
+		return "";
 	}
-	
-	
+
 }
