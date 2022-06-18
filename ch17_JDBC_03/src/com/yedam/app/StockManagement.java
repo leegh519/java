@@ -26,6 +26,7 @@ public class StockManagement {
 			// 메뉴입력
 			int menu = selectMenu();
 			// 각 기능 실행
+			// 1.제품등록 2.입고 3.출고 4.제품재고확인 5.전체재고확인 9.종료
 			if (menu == 1) {
 				insertProduct();
 			} else if (menu == 2) {
@@ -151,7 +152,12 @@ public class StockManagement {
 
 	private void insertProduct() {
 		Product product = inputAll();
+		History history = new History();
+		history.setProductId(product.getProductId());
+		history.setProductAmount(0);
+		history.setProductCategory(1);
 		pDao.insert(product);
+		hDao.insert(history);
 	}
 
 	private Product inputAll() {
