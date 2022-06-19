@@ -153,10 +153,11 @@ public class StockManagement {
 	private void insertProduct() {
 		Product product = inputAll();
 		History history = new History();
+		pDao.insert(product);
+		product = pDao.selectOneName(product.getProductName());
 		history.setProductId(product.getProductId());
 		history.setProductAmount(0);
 		history.setProductCategory(1);
-		pDao.insert(product);
 		hDao.insert(history);
 	}
 
