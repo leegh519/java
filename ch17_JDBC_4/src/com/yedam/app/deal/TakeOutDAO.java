@@ -30,7 +30,7 @@ public class TakeOutDAO extends DAO {
 			pstmt.setInt(2, info.getProductAmount());
 			int result = pstmt.executeUpdate();
 			if (result > 0) {
-				System.out.println(result + "건이 정상적으로 등록되었습니다.");
+				System.out.println(result + "건이 출고되었습니다.");
 			} else {
 				System.out.println("등록실패");
 			}
@@ -47,12 +47,19 @@ public class TakeOutDAO extends DAO {
 		int amount = 0;
 		try {
 			connect();
-			String sql = "SELECT SUM(product_amount) AS sum FROM take_out_goods WHERE product_id = ?";
+			String sql = "SELECT NVL(SUM(product_amount),0) as amount FROM take_out_goods WHERE product_id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, productId);
 			rs = pstmt.executeQuery();
+			
+			/*
+			 * https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=fxfighter&logNo=110024786570
 			if (!rs.wasNull()) {
 				amount = rs.getInt("sum");
+			}
+			*/
+			if (rs.next()) {
+				amount = rs.getInt("amount");
 			}
 
 		} catch (SQLException e) {

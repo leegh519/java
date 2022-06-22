@@ -19,6 +19,7 @@ public class Management {
 	// 부모클래스 생성자가 다시 호출되므로
 	// 정상적으로 동작이 안됨
 	public void run() {
+
 		while (true) {
 			menuPrint();
 			int menu = menuSelect();
@@ -39,6 +40,15 @@ public class Management {
 		}
 	}
 
+	protected boolean selectRole() {
+		int memberRole = LoginControl.getLoginInfo().getMemberRole();
+		if (memberRole == 0) {
+			return true;
+		}
+
+		return false;
+	}
+
 	protected void printInputErr() {
 		System.out.println("메뉴에 없는 기능입니다.");
 	}
@@ -48,7 +58,7 @@ public class Management {
 	}
 
 	protected int menuSelect() {
-		System.out.print("선택>");
+		System.out.print("선택> ");
 		return inputNum();
 	}
 
@@ -63,9 +73,18 @@ public class Management {
 	}
 
 	protected void menuPrint() {
-		System.out.println("---------------------------------");
-		System.out.println(" 1.제품정보관리  2.제품재고관리  9.종료");
-		System.out.println("---------------------------------");
+
+		System.out.println("-------------------------------------");
+		System.out.println(" 1.제품정보관리  2.제품재고관리  9.로그아웃");
+		System.out.println("-------------------------------------");
+	}
+	
+	protected void menuPrint(boolean role) {
+
+	}
+
+	protected void back() {
+		System.out.println("이전화면으로 돌아갑니다.");
 	}
 
 }

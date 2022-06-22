@@ -32,7 +32,7 @@ public class ReceivingDAO extends DAO {
 
 			int result = pstmt.executeUpdate();
 			if (result > 0) {
-				System.out.println(result+"건이 정상적으로 등록되었습니다.");
+				System.out.println(result+"건이 입고되었습니다.");
 			} else {
 				System.out.println("등록실패");
 			}
@@ -49,7 +49,7 @@ public class ReceivingDAO extends DAO {
 		boolean isSelected = false;
 		try {
 			connect();
-			String sql = "SELECT * FROM receiving_goods WHERE product_id = " + productId;
+			String sql = "SELECT * FROM receiving_goods WHERE product_id = '" + productId+"'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
@@ -76,8 +76,9 @@ public class ReceivingDAO extends DAO {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			/*
-			 * rs.wasNull() : rs이 null인지 확인 
+			 * rs.wasNull() : rs.get()이 null인지 확인 
 			 * NVL함수 사용할 수도 있음
+			 * https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=fxfighter&logNo=110024786570
 			 */
 			if (rs.next()) {
 				amount = rs.getInt("amount");

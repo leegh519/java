@@ -24,7 +24,7 @@ public class ProductsDAO extends DAO {
 	public void insert(Product product) {
 		try {
 			connect();
-			String sql = "INSERT INTO products (product_id, product_name, product_price) VALUES(products_seq.nextval, ?, ?";
+			String sql = "INSERT INTO products (product_id, product_name, product_price) VALUES(products_seq.nextval, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, product.getProductName());
 			pstmt.setInt(2, product.getProductPrice());
@@ -46,14 +46,14 @@ public class ProductsDAO extends DAO {
 	public void updateStock(Product product) {
 		try {
 			connect();
-			String sql = "UPDATE products SET product_stock = ? WHERE product_name = ?";
+			String sql = "UPDATE products SET product_stock = ? WHERE product_id = ?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, product.getProductStock());
-			pstmt.setString(2, product.getProductName());
+			pstmt.setInt(2, product.getProductId());
 
 			int result = pstmt.executeUpdate();
 			if (result > 0) {
-				System.out.println("수정되었습니다.");
+				System.out.println("재고가 수정되었습니다.");
 			} else {
 				System.out.println("수정실패!");
 			}
@@ -76,7 +76,7 @@ public class ProductsDAO extends DAO {
 
 			int result = pstmt.executeUpdate();
 			if (result > 0) {
-				System.out.println("수정되었습니다.");
+				System.out.println(result + "건이 정상적으로 수정되었습니다.");
 			} else {
 				System.out.println("수정실패!");
 			}
@@ -95,7 +95,7 @@ public class ProductsDAO extends DAO {
 			stmt = conn.createStatement();
 			int result = stmt.executeUpdate(sql);
 			if (result > 0) {
-				System.out.println("삭제되었습니다.");
+				System.out.println(result + "건이 정상적으로 삭제되었습니다.");
 			} else {
 				System.out.println("삭제실패!");
 			}
@@ -113,7 +113,7 @@ public class ProductsDAO extends DAO {
 		Product product = null;
 		try {
 			connect();
-			String sql = "SELECT * FROM products WHERE product_name = " + productName;
+			String sql = "SELECT * FROM products WHERE product_name = '" + productName+"'";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			if (rs.next()) {
@@ -135,13 +135,14 @@ public class ProductsDAO extends DAO {
 	// 전체조회
 	public List<Product> selectAll() {
 		List<Product> list = new ArrayList<Product>();
-		Product product = new Product();
+		Product product;
 		try {
 			connect();
 			String sql = "SELECT * FROM products ORDER BY 1";
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while (rs.next()) {
+				product = new Product();
 				product.setProductId(rs.getInt(1));
 				product.setProductName(rs.getString(2));
 				product.setProductPrice(rs.getInt(3));
