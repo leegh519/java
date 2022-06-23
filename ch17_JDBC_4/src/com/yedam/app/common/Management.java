@@ -2,6 +2,7 @@ package com.yedam.app.common;
 
 import java.util.Scanner;
 
+
 import com.yedam.app.deal.ProductStockManagement;
 import com.yedam.app.deal.ReceivingDAO;
 import com.yedam.app.deal.TakeOutDAO;
@@ -78,7 +79,7 @@ public class Management {
 		System.out.println(" 1.제품정보관리  2.제품재고관리  9.로그아웃");
 		System.out.println("-------------------------------------");
 	}
-	
+
 	protected void menuPrint(boolean role) {
 
 	}

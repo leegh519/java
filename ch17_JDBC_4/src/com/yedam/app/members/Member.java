@@ -1,5 +1,7 @@
 package com.yedam.app.members;
 
+
+
 public class Member {
 	private String memberId;
 	private String memberPassword;
@@ -7,29 +9,7 @@ public class Member {
 	// 0: 관리자, 1: 일반유저
 	private int memberRole;
 
-	public String getMemberId() {
-		return memberId;
-	}
-
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
-	}
-
-	public String getMemberPassword() {
-		return memberPassword;
-	}
-
-	public void setMemberPassword(String memberPassword) {
-		this.memberPassword = memberPassword;
-	}
-
-	public int getMemberRole() {
-		return memberRole;
-	}
-
-	public void setMemberRole(int memberRole) {
-		this.memberRole = memberRole;
-	}
+	
 
 	@Override
 	public String toString() {
@@ -41,6 +21,42 @@ public class Member {
 		}
 
 		return info;
+	}
+
+
+
+	public String getMemberId() {
+		return memberId;
+	}
+
+
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+
+
+	public String getMemberPassword() {
+		return memberPassword;
+	}
+
+
+
+	public void setMemberPassword(String memberPassword) {
+		this.memberPassword = memberPassword;
+	}
+
+
+
+	public int getMemberRole() {
+		return memberRole;
+	}
+
+
+
+	public void setMemberRole(int memberRole) {
+		this.memberRole = memberRole;
 	}
 
 }
