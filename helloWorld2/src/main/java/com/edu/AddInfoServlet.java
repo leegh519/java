@@ -14,19 +14,15 @@ public class AddInfoServlet extends HttpServlet {
 		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out = resp.getWriter();
 		out.print("<h3>추가적인 정보</h3>");
-		out.print("<p>Request Method: "+req.getMethod()+"</p>");
-		out.print("<p>Path Info: "+req.getPathInfo()+"</p>");
-		out.print("<p>Path Translated: "+req.getPathTranslated()+"</p>");
-		out.print("<p>Query String: "+req.getQueryString()+"</p>");
-		out.print("<p>Content Length: "+req.getContentLength()+"</p>");
-		out.print("<p>Content Type: "+req.getContentType()+"</p>");
-		out.print("<p>Request Method: "+req.getMethod()+"</p>");
-		
+		out.print("<p>Request Method: " + req.getMethod() + "</p>");
+		out.print("<p>Path Info: " + req.getPathInfo() + "</p>");
+		out.print("<p>Path Translated: " + req.getPathTranslated() + "</p>");
+		out.print("<p>Query String: " + req.getQueryString() + "</p>");
+		out.print("<p>Content Length: " + req.getContentLength() + "</p>");
+		out.print("<p>Content Type: " + req.getContentType() + "</p>");
+		out.print("<p>Request Method: " + req.getMethod() + "</p>");
+
 		out.close();
-		
-		
-		
-		
-		
+
 	}
 }

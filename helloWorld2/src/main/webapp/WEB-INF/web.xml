@@ -10,9 +10,31 @@
 		<servlet-name>first</servlet-name>
 		<servlet-class>com.edu.FirstServlet</servlet-class>
 	</servlet>
+
+
+	<servlet>
+		<servlet-name>initParam</servlet-name>
+		<servlet-class>com.edu.web.InitParamServlet</servlet-class>
+		<init-param>
+			<param-name>id</param-name>
+			<param-value>guest</param-value>
+		</init-param>
+		<init-param>
+			<param-name>password</param-name>
+			<param-value>1004</param-value>
+		</init-param>
+		<!-- 서블릿 실행순서, 호출안해도 서버실행될 때 서블릿 실행하도록 설정함 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+
 	<servlet-mapping>
 		<servlet-name>first</servlet-name>
 		<url-pattern>/first.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>initParam</servlet-name>
+		<url-pattern>/initParam</url-pattern>
 	</servlet-mapping>
 	<servlet>
 		<servlet-name>addInfo</servlet-name>

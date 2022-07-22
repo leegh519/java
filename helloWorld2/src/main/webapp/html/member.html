@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Document</title>
+</head>
+<body>
+	<h3>회원정보</h3>
+	<form action="querytest" method="post">
+		ID: <input type="text" name="id" /><br /> 비밀번호: <input
+			type="password" name="pwd" /><br /> 이름: <input type="text"
+			name="name" /><br /> 취미: <input type="checkbox" name="hobby"
+			value="climbing" />등산 <input type="checkbox" name="hobby"
+			value="sport" />운동 <input type="checkbox" name="hobby"
+			value="reading" />독서 <input type="checkbox" name="hobby"
+			value="traveling" />여행<br /> 성별: <input type="radio" name="gender"
+			value="male" />남자 <input type="radio" name="gender" value="female" />여자<br />
+		종교: <select name="religion">
+			<option value="chiristianity">기독교</option>
+			<option value="buddhism">불교</option>
+			<option value="catholicism">천주교</option>
+			<option value="atheism">무교</option>
+		</select> 자기소개: <br />
+		<textarea name="introduction" cols="30" rows="10"></textarea>
+		<br /> <input type="submit" value="전송" /> <input type="reset"
+			value="초기화" />
+
+
+	</form>
+
+	<script>
+		
+		let str = "id=user9&pwd=9999&name=홍길동&hobby=climbing&hobby=sport";
+		let result = [];
+		result = getParameter(str, "hobby");
+		console.log(result);
+		function getParameter(querystring, param) {
+			let arr = [];
+			let s = querystring;
+			let a = querystring.indexOf(param);
+			while (true) {
+				a = s.indexOf(param);
+				console.log(s);
+				if (a == -1) {
+					break;
+				}
+				
+				s = s.substring(start);
+				let end = s.indexOf("&") + a;
+				let start = a + param.length + 1;
+				let result = s.substring(start, end);
+				arr.push(result);
+			}
+
+			return arr;
+		}
+	</script>
+</body>
+</html>
