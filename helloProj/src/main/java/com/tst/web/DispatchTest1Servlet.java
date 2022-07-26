@@ -38,8 +38,8 @@ public class DispatchTest1Servlet extends HttpServlet {
 		req.setAttribute("param3", publish);
 
 		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/dispatch2");
-		// rd.include(req, resp);
-		rd.forward(req, resp);
+		rd.include(req, resp);
+		//rd.forward(req, resp);
 
 	}
 }
